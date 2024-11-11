@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function calculatePrice(pricePerKg, weightSelectId, totalPriceId) {
+      const weight = parseInt(document.getElementById(weightSelectId).value);
+      const total = pricePerKg * weight;
+      document.getElementById(totalPriceId).innerText = `Total Price: $${total}`;
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-success text-white text-center py-3">
+    <h1>Shopping Cart</h1>
+  </header>
+
+  <!-- Cart Items Section -->
+  <section class="container my-5">
+    <!-- Tomatoes Section -->
+    <div id="tomatoes" class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title">Tomatoes</h5>
+        <p class="card-text">Price: $2 per kg</p>
+        <label for="weightTomatoes">Select Weight:</label>
+        <select id="weightTomatoes" class="form-control" onchange="calculatePrice(2, 'weightTomatoes', 'totalPriceTomatoes')">
+          <option value="10">10 kg</option>
+          <option value="20">20 kg</option>
+          <option value="30">30 kg</option>
+          <option value="40">40 kg</option>
+          <option value="50">50 kg</option>
+        </select>
+        <p id="totalPriceTomatoes" class="mt-3">Total Price: $0</p>
+        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
+      </div>
+    </div>
+
+    <!-- Cucumbers Section -->
+    <div id="cucumbers" class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title">Cucumbers</h5>
+        <p class="card-text">Price: $1.5 per kg</p>
+        <label for="weightCucumbers">Select Weight:</label>
+        <select id="weightCucumbers" class="form-control" onchange="calculatePrice(1.5, 'weightCucumbers', 'totalPriceCucumbers')">
+          <option value="10">10 kg</option>
+          <option value="20">20 kg</option>
+          <option value="30">30 kg</option>
+          <option value="40">40 kg</option>
+          <option value="50">50 kg</option>
+        </select>
+        <p id="totalPriceCucumbers" class="mt-3">Total Price: $0</p>
+        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
+      </div>
+    </div>
+
+    <!-- Additional sections for other vegetables (Carrots, Spinach, Peppers) follow the same format -->
+
+    <!-- Carrots Section -->
+    <div id="carrots" class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title">Carrots</h5>
+        <p class="card-text">Price: $3 per kg</p>
+        <label for="weightCarrots">Select Weight:</label>
+        <select id="weightCarrots" class="form-control" onchange="calculatePrice(3, 'weightCarrots', 'totalPriceCarrots')">
+          <option value="10">10 kg</option>
+          <option value="20">20 kg</option>
+          <option value="30">30 kg</option>
+          <option value="40">40 kg</option>
+          <option value="50">50 kg</option>
+        </select>
+        <p id="totalPriceCarrots" class="mt-3">Total Price: $0</p>
+        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
+      </div>
+    </div>
+    
+    <!-- Spinach Section -->
+    <div id="spinach" class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title">Spinach</h5>
+        <p class="card-text">Price: $2.5 per kg</p>
+        <label for="weightSpinach">Select Weight:</label>
+        <select id="weightSpinach" class="form-control" onchange="calculatePrice(2.5, 'weightSpinach', 'totalPriceSpinach')">
+          <option value="10">10 kg</option>
+          <option value="20">20 kg</option>
+          <option value="30">30 kg</option>
+          <option value="40">40 kg</option>
+          <option value="50">50 kg</option>
+        </select>
+        <p id="totalPriceSpinach" class="mt-3">Total Price: $0</p>
+        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
+      </div>
+    </div>
+
+    <!-- Peppers Section -->
+    <div id="peppers" class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title">Peppers</h5>
+        <p class="card-text">Price: $4 per kg</p>
+        <label for="weightPeppers">Select Weight:</label>
+        <select id="weightPeppers" class="form-control" onchange="calculatePrice(4, 'weightPeppers', 'totalPricePeppers')">
+          <option value="10">10 kg</option>
+          <option value="20">20 kg</option>
+          <option value="30">30 kg</option>
+          <option value="40">40 kg</option>
+          <option value="50">50 kg</option>
+        </select>
+        <p id="totalPricePeppers" class="mt-3">Total Price: $0</p>
+        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2023 Farmer's Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>
