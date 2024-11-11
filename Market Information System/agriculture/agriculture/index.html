@@ -3,16 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmer's Marketplace</title>
+  <title>FarmerSmart</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom styling for the product slider */
+    .product-slider .slider-track {
+      display: flex;
+      width: max-content;
+      animation: slide 20s linear infinite;
+    }
+    .product-slider .slide-item {
+      flex: none;
+      margin: 0 10px;
+    }
+    .product-slider .slide-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand" href="#">Farmer's Marketplace</a>
+    <a class="navbar-brand" href="#">FarmSmart</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,8 +56,8 @@
             Products
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#vegetables">Vegetables</a>
-            <a class="dropdown-item" href="#fruits">Fruits</a>
+            <a class="dropdown-item" href="vegetables.html">Vegetables</a>
+            <a class="dropdown-item" href="fruits.html">Fruits</a>
           </div>
         </li>
         <li class="nav-item">
@@ -50,18 +77,22 @@
     </div>
   </section>
 
-  <!-- Auto-Sliding Product Prices Section -->
+  <!-- Auto-Sliding Product Images Section -->
   <section class="product-slider mt-4">
     <div class="container">
       <h2 class="text-center mb-4">Available Products</h2>
       <div class="slider">
         <div class="slider-track">
-          <div class="slide-item">Wheat - $10</div>
-          <div class="slide-item">Rice - $8</div>
-          <div class="slide-item">Maize - $7</div>
-          <div class="slide-item">Barley - $12</div>
-          <div class="slide-item">Apples - $5</div>
-          <div class="slide-item">Oranges - $6</div>
+          <div class="slide-item"><img src="images/banana.png" alt="Tomato"></div>
+          <div class="slide-item"><img src="images/potato.jpeg" alt="Potato"></div>
+          <div class="slide-item"><img src="images/spinach.png" alt="Spinach"></div>
+          <div class="slide-item"><img src="images/gourd.jpg" alt="Gourd"></div>
+          <div class="slide-item"><img src="images/carrot.png" alt="Carrot"></div>
+          <div class="slide-item"><img src="images/okra.png" alt="Pepper"></div>
+          <div class="slide-item"><img src="images/tomato.png" alt="Pepper"></div>
+          <div class="slide-item"><img src="images/guava.png" alt="Pepper"></div>
+          <div class="slide-item"><img src="images/orange.png" alt="Pepper"></div>
+          <div class="slide-item"><img src="images/rice.jpeg" alt="Pepper"></div>
         </div>
       </div>
     </div>
@@ -73,7 +104,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="images/farmer1.jpeg" class="farmer-img" alt="Farmer 1">
+          <img src="images/KARIM_RAHMAN.jpeg" class="farmer-img" alt="KARIM_RAHMAN">
           <div class="card-body">
             <h5 class="card-title">Farmer Name 1</h5>
           </div>
@@ -81,7 +112,7 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src=""/mnt/data/5f563b7a-f3c3-4237-a5f2-bc1866aefd0e.jpeg" class="farmer-img" alt="Farmer 2">
+          <img src="images/farmer2.jpeg" class="farmer-img" alt="Farmer 2">
           <div class="card-body">
             <h5 class="card-title">Farmer Name 2</h5>
           </div>
@@ -89,7 +120,7 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src="farmer3.jpg" class="card-img-top" alt="Farmer 3">
+          <img src="images/farmer3.jpeg" class="farmer-img" alt="Farmer 3">
           <div class="card-body">
             <h5 class="card-title">Farmer Name 3</h5>
           </div>
@@ -107,22 +138,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- JavaScript for Product Slider -->
-  <script>
-    const track = document.querySelector('.slider-track');
-    let currentPosition = 0;
-    
-    function slide() {
-      currentPosition -= 2;
-      track.style.transform = `translateX(${currentPosition}px)`;
-      
-      if (Math.abs(currentPosition) >= track.offsetWidth / 2) {
-        currentPosition = 0;
-      }
-      requestAnimationFrame(slide);
-    }
-    slide();
-  </script>
 </body>
 </html>
