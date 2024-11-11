@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Order</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div class="menu">
+        <img src="image/bp1.png" alt="Buyer Logo">
+        <div class="buyer-name">Buyer Name</div>
+        <a href="index.html">Home</a>
+        <a href="buy_product.html">Buy Product</a>
+        <a href="order_product.html">Make an Order</a>
+        <a href="myallOrder.html">View orders</a>
+        <a href="allcart.html">Cart Items</a>
+    </div>
+    <div class="content container">
+        <h1 style="color:#2d5a4a;font-weight:bold;padding-bottom: 20px;" class="text-center">My All Order.</h1>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Delivety Time</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mango</td>
+                <td>10kg</td>
+                <td>600</td>
+                <td>5 Days</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm"><a style="color:white;text-decoration:none;" href="order_product.html">Edit Order</a></button>
+                    <button type="button" class="btn btn-secondary btn-sm">Delete Order</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Orange</td>
+                <td>10kg</td>
+                <td>400</td>
+                <td>3 Days</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm"><a style="color:white;text-decoration:none;" href="order_product.html">Edit Order</a></button>
+                    <button type="button" class="btn btn-secondary btn-sm">Delete Order</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Rice</td>
+                <td>10kg</td>
+                <td>400</td>
+                <td>5 Days</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm"><a style="color:white;text-decoration:none;" href="order_product.html">Edit Order</a></button>
+                    <button type="button" class="btn btn-secondary btn-sm">Delete Order</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
