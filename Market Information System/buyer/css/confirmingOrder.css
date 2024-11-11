@@ -1,0 +1,10 @@
+.card{
+    margin-left: 360px;
+    margin-top: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn{
+    width: 300px;
+    margin-left: 400px;
+    margin-top: 20px;
+}
