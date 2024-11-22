@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | FarmSmart</title>
-    <link rel="stylesheet" href="css/style_login.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="loginBox">
-      <img src="img/Farm Smart.png" alt="Logo" class="logo" />
-      <h2>Log In</h2>
-      <form action="">
-        <p>LogIn As:</p>
-        <select id="crop-select">
-          <option value="farmer">Farmer</option>
-          <option value="buyer">Buyer</option>
-          <option value="agriculture">Agregulture</option>
-          <option value="abc">abc</option>
-        </select>
-        <p>User ID</p>
-        <input type="text" name="u_id" placeholder="Enter Your ID" />
-        <p>Password</p>
-        <input type="password" name="u_id" placeholder="Enter Your Password" />
-        <input type="Submit" name="" value="Log In" />
-        <a href="create_account.html">Don't have a account?</a>
-      </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/loginStyle.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="" class="navlogo"><div class="logo">FarmSmart</div></a>    
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="card">
+        <!-- Left Side Welcome Section -->
+        <div class="left-section">
+            <h1 class="welcome-text">
+                Welcome Back In <br> <span>FarmSmart</span>
+            </h1>
+            <p class="description">
+                Transform your farming experience with the latest market insights, personalized recommendations, and a vibrant community. Get started now!
+            </p>
+        </div>
+
+        <!-- Right Side Login Form -->
+        <div class="right-section">
+            <div class="form-container">
+                <h2 class="form-title">Login</h2>
+                <p class="form-subtitle">Welcome back! Login to access your account.</p>
+
+                <form>
+                    <div class="input-group">
+                        <label for="username">User ID</label>
+                        <input type="text" id="username" placeholder="Enter your userid" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+
+                <p class="register-link">Don't have an account? <a href="registerPage.html">Register here</a></p>
+            </div>
+        </div>
     </div>
-  </body>
+</div>
+    </div>
+</body>
 </html>
