@@ -7,49 +7,65 @@
     <link rel="stylesheet" href="css/loginStyle.css">
 </head>
 <body>
-  <nav class="navbar">
-    <a href="" class="navlogo"><div class="logo">FarmSmart</div></a>    
-    <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="container">
-    <div class="card">
-        <!-- Left Side Welcome Section -->
-        <div class="left-section">
-            <h1 class="welcome-text">
-                Welcome Back In <br> <span>FarmSmart</span>
-            </h1>
-            <p class="description">
-                Transform your farming experience with the latest market insights, personalized recommendations, and a vibrant community. Get started now!
-            </p>
-        </div>
+    <nav class="navbar">
+        <a href="#" class="navlogo"><div class="logo">FarmSmart</div></a>    
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-        <!-- Right Side Login Form -->
-        <div class="right-section">
-            <div class="form-container">
-                <h2 class="form-title">Login</h2>
-                <p class="form-subtitle">Welcome back! Login to access your account.</p>
+    <div class="container">
+        <div class="card">
+            <!-- Left Side Welcome Section -->
+            <div class="left-section">
+                <h1 class="welcome-text">
+                    Welcome Back In <br> <span>FarmSmart</span>
+                </h1>
+                <p class="description">
+                    Transform your farming experience with the latest market insights, personalized recommendations, and a vibrant community. Get started now!
+                </p>
+            </div>
 
-                <form>
-                    <div class="input-group">
-                        <label for="username">User ID</label>
-                        <input type="text" id="username" placeholder="Enter your userid" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="btn-login">Login</button>
-                </form>
+            <!-- Right Side Login Form -->
+            <div class="right-section">
+                <div class="form-container">
+                    <h2 class="form-title">Login</h2>
+                    <p class="form-subtitle">Welcome back! Login to access your account.</p>
 
-                <p class="register-link">Don't have an account? <a href="registerPage.html">Register here</a></p>
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="username">User ID</label>
+                            <input type="text" id="username" placeholder="Enter your userid" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="button" class="btn-login" id="loginBtn">Login</button>
+                    </form>
+
+                    <p class="register-link">Don't have an account? <a href="registerPage.html">Register here</a></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    </div>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            // Define the valid password
+            const validPassword = "farmer123"; // Replace with your specific password
+            const enteredPassword = document.getElementById('password').value;
+
+            if (enteredPassword === validPassword) {
+                // Redirect to FarmerUser Dashboard
+                window.location.href = "../FarmerUser/LandingFarmer.html";
+            } else {
+                // Show an alert if the password is incorrect
+                alert("Invalid password. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
