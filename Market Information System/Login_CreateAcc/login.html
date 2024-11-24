@@ -8,11 +8,11 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="navlogo"><div class="logo">FarmSmart</div></a>    
+        <a href="/dashboard_farmer/dashboard.html" class="navlogo"><div class="logo">FarmSmart</div></a>    
         <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/dashboard_farmer/dashboard.html">Home</a></li>
+            <li><a href="/dashboard_farmer/dashboard.html">About</a></li>
+            <li><a href="/dashboard_farmer/dashboard.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -57,23 +57,35 @@
             // User data for validation (can be replaced with database logic)
             const users = [
                 {
-                    username: "farmer",
-                    password: "farmer123",
+                    username: "f",
+                    password: "f123",
                     role: "farmer",
                     redirectTo: "/FarmerUser/LandingFarmer.html"
                 },
                 {
-                    username: "buyer",
-                    password: "buyer123",
+                    username: "b",
+                    password: "b123",
                     role: "buyer",
                     redirectTo: "/buyer/index.html"
                 },
                 {
-                    username: "nutrition",
-                    password: "nutrition123",
+                    username: "n",
+                    password: "n123",
                     role: "nutritionist",
                     redirectTo: "/Nutrionist/home.html"
                 },
+                {
+                    username: "s",
+                    password: "s123",
+                    role: "supllier",
+                    redirectTo: "/Supplier/index.html"
+                },
+                {
+                    username: "wb",
+                    password: "wb123",
+                    role: "Wholesale buyer",
+                    redirectTo: "/agriculture/agriculture/index.html"
+                }
             ];
     
             // Get entered credentials
