@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/allorder.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2 - Collected Data</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/task2.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Navigation Menu -->
     <div class="menu">
-        <div class="website-name">FarmSmart</div>
-        <img src="img/p.png" alt="My Logo">
-        <div class="buyer-name">Name</div>
-        <a href="home.html">Home</a>
-        <a href="task1.html">Send Suggestions</a>
-        <a href="task2.html">Weather Condition</a>
+      <div class="website-name">FarmSmart</div>
+      <img src="img/p.png" alt="My Logo" />
+      <div class="buyer-name">Name</div>
+      <a href="home.html">Home</a>
+      <a href="task1.html">Send Suggestions</a>
+      <a href="task2.html">Collected Data</a>
+      <a href="task3.html">Weather Data</a>
+      <a href="/Login_CreateAcc/login.html">Log Out</a>     
     </div>
+
+    <!-- Main Content -->
     <div class="content container">
-        <h1 style="color:#478BA2;font-weight: bold;" class="text-center">Today's Weather</h1>
-        <div class="row">
-            <div class="col-3">
-            </div>
-            <div class="col-6">
-                <form action="">
-                    <label for="gsearch">Search Weather:</label>
-                    <input class="form-control" type="search" id="gsearch" name="gsearch" placeholder="Enter the location">
-                    <input class="btn btn-primary wbtn" type="submit">
-                </form>
-            </div>
-            <div class="col-3">
-            </div>
-          </div>
-        <div class="wImg mx-auto">
-            <img src="img/w.jpg" alt="">
+      <h1 class="text-center" style="color: #4a6f4c; font-weight: bold;">
+        Enter Collected Data
+      </h1>
+
+      <!-- Form to Collect Data -->
+      <form id="dataForm">
+        <div class="form-group">
+          <label for="collectedData">Collected Data</label>
+          <input
+            type="text"
+            class="form-control"
+            id="collectedData"
+            placeholder="Enter details of collected data"
+            required
+          />
         </div>
+        <div class="form-group">
+          <label for="cropsNutritionData">Crops Nutrition Data</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cropsNutritionData"
+            placeholder="Enter crops' nutritional details"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="soilData">Soil Data</label>
+          <input
+            type="text"
+            class="form-control"
+            id="soilData"
+            placeholder="Enter soil composition details"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="soilExpireDate">Soil Expiration Date</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="soilExpireDate"
+            required
+          />
+        </div>
+        <div class="text-center">
+          <button type="button" class="btn btn-primary" onclick="addRow()">
+            Submit Data
+          </button>
+        </div>
+      </form>
+
+      <!-- Display Table -->
+      <h2 class="text-center mt-5" style="color: #4a6f4c;">
+        Submitted Data
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Collected Data</th>
+              <th scope="col">Crops Nutrition Data</th>
+              <th scope="col">Soil Data</th>
+              <th scope="col">Soil Expiration Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be added dynamically -->
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
+
+    <!-- JavaScript to Update Table Dynamically -->
+    <script>
+      function addRow() {
+        // Get form values
+        const collectedData = document.getElementById("collectedData").value;
+        const cropsNutritionData = document.getElementById("cropsNutritionData").value;
+        const soilData = document.getElementById("soilData").value;
+        const soilExpireDate = document.getElementById("soilExpireDate").value;
+
+        // Validate inputs
+        if (!collectedData || !cropsNutritionData || !soilData || !soilExpireDate) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        // Add row to the table
+        const tableBody = document.querySelector("#dataTable tbody");
+        const newRow = `
+          <tr>
+            <td>${collectedData}</td>
+            <td>${cropsNutritionData}</td>
+            <td>${soilData}</td>
+            <td>${soilExpireDate}</td>
+          </tr>`;
+        tableBody.insertAdjacentHTML("beforeend", newRow);
+
+        // Clear the form fields after submission
+        document.getElementById("dataForm").reset();
+      }
+    </script>
+  </body>
 </html>

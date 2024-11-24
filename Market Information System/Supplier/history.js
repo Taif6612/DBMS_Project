@@ -7,6 +7,14 @@ function showSectionById(id) {
     // Show the selected section
     document.getElementById(id).classList.remove('hidden');
 }
+// Select the logout button
+const logoutButton = document.getElementById('logout-btn');
+
+// Add a click event listener to the button
+logoutButton.addEventListener('click', () => {
+    // Redirect to the login page
+    window.location.href = '/Login_CreateAcc/login.html'; // Replace with the actual path to your login.html
+});
 
 // Event listeners for each button
 document.getElementById('home-btn').addEventListener('click', function () {

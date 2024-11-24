@@ -54,18 +54,47 @@
 
     <script>
         document.getElementById('loginBtn').addEventListener('click', function () {
-            // Define the valid password
-            const validPassword = "farmer123"; // Replace with your specific password
-            const enteredPassword = document.getElementById('password').value;
-
-            if (enteredPassword === validPassword) {
-                // Redirect to FarmerUser Dashboard
-                window.location.href = "../FarmerUser/LandingFarmer.html";
+            // User data for validation (can be replaced with database logic)
+            const users = [
+                {
+                    username: "farmer",
+                    password: "farmer123",
+                    role: "farmer",
+                    redirectTo: "/FarmerUser/LandingFarmer.html"
+                },
+                {
+                    username: "buyer",
+                    password: "buyer123",
+                    role: "buyer",
+                    redirectTo: "/buyer/index.html"
+                },
+                {
+                    username: "nutrition",
+                    password: "nutrition123",
+                    role: "nutritionist",
+                    redirectTo: "/Nutrionist/home.html"
+                },
+            ];
+    
+            // Get entered credentials
+            const enteredUsername = document.getElementById('username').value.trim();
+            const enteredPassword = document.getElementById('password').value.trim();
+    
+            // Check credentials
+            const user = users.find(
+                user => user.username === enteredUsername && user.password === enteredPassword
+            );
+    
+            if (user) {
+                // Redirect to the user's specific dashboard
+                window.location.href = user.redirectTo;
             } else {
-                // Show an alert if the password is incorrect
-                alert("Invalid password. Please try again.");
+                // Show an alert if the credentials are incorrect
+                alert("Invalid username or password. Please try again.");
             }
         });
     </script>
+    
+    
 </body>
 </html>

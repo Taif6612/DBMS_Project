@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 1</title>
+    <title>Send Suggestions</title>
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/confirmingOrder.css" />
     <link
@@ -14,42 +14,72 @@
     />
   </head>
   <body>
+    <!-- Navbar -->
     <div class="menu">
         <div class="website-name">FarmSmart</div>
-        <img src="img/p.png" alt="My Logo">
-        <div class="buyer-name">Name</div>
+        <img src="img/p.png" alt="My Logo" />
+        <div class="buyer-name">Nutritionist</div>
         <a href="home.html">Home</a>
         <a href="task1.html">Send Suggestions</a>
-        <a href="task2.html">Weather Condition</a>
+        <a href="task2.html">Collected Data</a>
+        <a href="task3.html">Weather Data</a>
+        <a href="/Login_CreateAcc/login.html">Log Out</a>   
     </div>
+
+    <!-- Main Content -->
     <div class="content container">
-      <div class="content container">
-        <h1 style="color:#2d5a4a;font-weight: bold;" class="text-center">Order Here.</h1>
+        <h1 class="text-center" style="color:#2d5a4a; font-weight: bold;">Send Suggestions</h1>
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form>
+                <form action="save_suggestions.php" method="POST"> <!-- Backend connection -->
+                    <!-- Farmer ID -->
                     <div class="form-group">
-                      <label for="productName">Farmer ID</label>
-                      <input type="text" class="form-control" id="productName" placeholder="Enter the ID">
+                        <label for="farmerId">Farmer ID</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="farmerId"
+                            name="farmerId"
+                            placeholder="Enter the Farmer ID"
+                            required
+                        />
                     </div>
+
+                    <!-- Suggestion About -->
                     <div class="form-group">
-                        <label for="productName">Suggestion about</label>
-                        <input type="text" class="form-control" id="productQuantity" placeholder="Subject of Suggestion">
-                      </div>
-                      <div class="form-group">
-                        <label for="productprice">Suggestion</label>
-                        <input type="text" class="form-control" id="productprice" placeholder="Suggestion">
-                      </div>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary"><a style="text-decoration:none;color:white;padding:15px;" href="#">Send</a></button>
-                      </div>
-                  </form>
+                        <label for="suggestionSubject">Suggestion About</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="suggestionSubject"
+                            name="suggestionSubject"
+                            placeholder="Subject of the Suggestion"
+                            required
+                        />
+                    </div>
+
+                    <!-- Suggestion -->
+                    <div class="form-group">
+                        <label for="suggestion">Suggestion</label>
+                        <textarea
+                            class="form-control"
+                            id="suggestion"
+                            name="suggestion"
+                            rows="3"
+                            placeholder="Write your suggestion here"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
             </div>
             <div class="col-2"></div>
         </div>
-        
     </div>
-
   </body>
 </html>

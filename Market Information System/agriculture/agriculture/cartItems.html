@@ -3,121 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
+  <title>Shopping Cart</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script>
-    function calculatePrice(pricePerKg, weightSelectId, totalPriceId) {
-      const weight = parseInt(document.getElementById(weightSelectId).value);
-      const total = pricePerKg * weight;
-      document.getElementById(totalPriceId).innerText = `Total Price: $${total}`;
+    // Function to edit a specific row
+    function editRow(rowId) {
+      const row = document.getElementById(rowId); // Get the row
+      const inputs = row.querySelectorAll(".editable"); // Get all editable fields
+      inputs.forEach(input => input.disabled = false); // Enable them for editing
     }
+
+    // Function to save the row data
+    function saveRow(rowId) {
+      const row = document.getElementById(rowId); // Get the row
+      const inputs = row.querySelectorAll(".editable"); // Get all editable fields
+      
+      // Prepare data to send to the backend
+      const productName = row.cells[0].innerText; // First cell contains product name
+      const pricePerKg = inputs[0].value; // Second cell (editable)
+      const quantity = inputs[1].value; // Third cell (editable)
+      const totalPrice = pricePerKg * quantity; // Calculate total
+
+      // Example: Send updated data to the backend using AJAX
+      fetch('saveProduct.php', { // Replace with your PHP endpoint
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          rowId: rowId,
+          productName: productName,
+          pricePerKg: pricePerKg,
+          quantity: quantity,
+          totalPrice: totalPrice
+        })
+      }).then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Row saved successfully!');
+            row.cells[3].innerText = `$${totalPrice}`; // Update total price cell
+            inputs.forEach(input => input.disabled = true); // Disable editing
+          } else {
+            alert('Error saving row. Please try again.');
+          }
+        });
+    }
+
+    // Function to delete a row
+    function deleteRow(rowId) {
+      // Send delete request to the backend
+      fetch(`deleteProduct.php?id=${rowId}`, { method: 'DELETE' }) // Replace with your PHP endpoint
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById(rowId).remove(); // Remove the row from the table
+            alert('Row deleted successfully!');
+          } else {
+            alert('Error deleting row. Please try again.');
+          }
+        });
+    }
+
+    // Function to fetch data from the backend and populate the table
+    function fetchData() {
+      fetch('getProducts.php') // Replace with your PHP endpoint
+        .then(response => response.json())
+        .then(data => {
+          const tableBody = document.getElementById('cartTableBody');
+          data.forEach(product => {
+            const row = document.createElement('tr');
+            row.id = `row${product.id}`; // Use product ID for row ID
+            row.innerHTML = `
+              <td>${product.name}</td>
+              <td><input type="number" value="${product.pricePerKg}" class="form-control editable" disabled></td>
+              <td><input type="number" value="${product.quantity}" class="form-control editable" disabled></td>
+              <td>$${product.pricePerKg * product.quantity}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" onclick="editRow('row${product.id}')">Edit</button>
+                <button class="btn btn-success btn-sm" onclick="saveRow('row${product.id}')">Save</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteRow('row${product.id}')">Delete</button>
+              </td>
+            `;
+            tableBody.appendChild(row);
+          });
+        });
+    }
+
+    // Call fetchData on page load to populate the table
+    window.onload = fetchData;
   </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="bg-success text-white text-center py-3">
-    <h1>Shopping Cart</h1>
-  </header>
-
-  <!-- Cart Items Section -->
-  <section class="container my-5">
-    <!-- Tomatoes Section -->
-    <div id="tomatoes" class="card my-4">
-      <div class="card-body">
-        <h5 class="card-title">Tomatoes</h5>
-        <p class="card-text">Price: $2 per kg</p>
-        <label for="weightTomatoes">Select Weight:</label>
-        <select id="weightTomatoes" class="form-control" onchange="calculatePrice(2, 'weightTomatoes', 'totalPriceTomatoes')">
-          <option value="10">10 kg</option>
-          <option value="20">20 kg</option>
-          <option value="30">30 kg</option>
-          <option value="40">40 kg</option>
-          <option value="50">50 kg</option>
-        </select>
-        <p id="totalPriceTomatoes" class="mt-3">Total Price: $0</p>
-        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
-      </div>
+  <!-- Navbar -->
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#">FarmSmart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/agriculture/agriculture/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#companies">Companies</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown">
+            Products
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="vegetables.html">Vegetables</a>
+            <a class="dropdown-item" href="fruits.html">Fruits</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/agriculture/agriculture/cartItems.html">Cart Item</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="path/to/avatar-placeholder.png" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%;">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="profile.html">Wholesaler's Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/Login_CreateAcc/login.html">Logout</a>
+          </div>
+      </li>
+  </ul>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Cucumbers Section -->
-    <div id="cucumbers" class="card my-4">
-      <div class="card-body">
-        <h5 class="card-title">Cucumbers</h5>
-        <p class="card-text">Price: $1.5 per kg</p>
-        <label for="weightCucumbers">Select Weight:</label>
-        <select id="weightCucumbers" class="form-control" onchange="calculatePrice(1.5, 'weightCucumbers', 'totalPriceCucumbers')">
-          <option value="10">10 kg</option>
-          <option value="20">20 kg</option>
-          <option value="30">30 kg</option>
-          <option value="40">40 kg</option>
-          <option value="50">50 kg</option>
-        </select>
-        <p id="totalPriceCucumbers" class="mt-3">Total Price: $0</p>
-        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
-      </div>
-    </div>
-
-    <!-- Additional sections for other vegetables (Carrots, Spinach, Peppers) follow the same format -->
-
-    <!-- Carrots Section -->
-    <div id="carrots" class="card my-4">
-      <div class="card-body">
-        <h5 class="card-title">Carrots</h5>
-        <p class="card-text">Price: $3 per kg</p>
-        <label for="weightCarrots">Select Weight:</label>
-        <select id="weightCarrots" class="form-control" onchange="calculatePrice(3, 'weightCarrots', 'totalPriceCarrots')">
-          <option value="10">10 kg</option>
-          <option value="20">20 kg</option>
-          <option value="30">30 kg</option>
-          <option value="40">40 kg</option>
-          <option value="50">50 kg</option>
-        </select>
-        <p id="totalPriceCarrots" class="mt-3">Total Price: $0</p>
-        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
-      </div>
-    </div>
-    
-    <!-- Spinach Section -->
-    <div id="spinach" class="card my-4">
-      <div class="card-body">
-        <h5 class="card-title">Spinach</h5>
-        <p class="card-text">Price: $2.5 per kg</p>
-        <label for="weightSpinach">Select Weight:</label>
-        <select id="weightSpinach" class="form-control" onchange="calculatePrice(2.5, 'weightSpinach', 'totalPriceSpinach')">
-          <option value="10">10 kg</option>
-          <option value="20">20 kg</option>
-          <option value="30">30 kg</option>
-          <option value="40">40 kg</option>
-          <option value="50">50 kg</option>
-        </select>
-        <p id="totalPriceSpinach" class="mt-3">Total Price: $0</p>
-        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
-      </div>
-    </div>
-
-    <!-- Peppers Section -->
-    <div id="peppers" class="card my-4">
-      <div class="card-body">
-        <h5 class="card-title">Peppers</h5>
-        <p class="card-text">Price: $4 per kg</p>
-        <label for="weightPeppers">Select Weight:</label>
-        <select id="weightPeppers" class="form-control" onchange="calculatePrice(4, 'weightPeppers', 'totalPricePeppers')">
-          <option value="10">10 kg</option>
-          <option value="20">20 kg</option>
-          <option value="30">30 kg</option>
-          <option value="40">40 kg</option>
-          <option value="50">50 kg</option>
-        </select>
-        <p id="totalPricePeppers" class="mt-3">Total Price: $0</p>
-        <a href="checkout.html" class="btn btn-primary mt-3">Proceed to Checkout</a>
-      </div>
-    </div>
-  </section>
+  <!-- Dynamic Table Section -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Shopping Cart</h2>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Product Name</th>
+          <th>Price per Kg ($)</th>
+          <th>Quantity (kg)</th>
+          <th>Total Price ($)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="cartTableBody">
+        <!-- Rows are populated dynamically from the backend -->
+      </tbody>
+    </table>
+    <button class="btn btn-primary mt-3 float-right" onclick="location.href='orderDetails.html'">Proceed to Checkout</button>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
+  <footer class="bg-dark text-white text-center py-3 mt-5">
     <p>&copy; 2023 Farmer's Marketplace. All rights reserved.</p>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
