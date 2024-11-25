@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cartstyle.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">FarmSmart</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="buyproduct.html">Products</a>
+            <a href="allOrder.html">My Orders</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="user-actions">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping cart-icon"></i> </a> <!-- Shopping Cart Icon -->
+            <a href="profile.html"><i class="fa-solid fa-user profile-icon"></i></a>  <!-- Profile/User Icon -->
+            <button class="logout">Logout</button>
+        </div>
+    </div>
+
+    <section class="cart-section">
+        <h1>Your Cart Items</h1>
+        <div class="cart-container">
+            <!-- Cart Item -->
+            <form class="cart-item">
+                <img src="image/lichi.jpg" alt="Product Image">
+                <div class="cart-details">
+                    <div class="cart-detail-item">
+                        <label for="product-name">Product Name:</label>
+                        <input type="text" id="product-name" value="Fresh Tomatoes" disabled>
+                    </div>
+                    <div class="cart-detail-item">
+                        <label for="product-price">Price:</label>
+                        <input type="text" id="product-price" value="$3.00 / kg" disabled>
+                    </div>
+                    <div class="cart-detail-item">
+                        <label for="salesperson-name">Salesperson:</label>
+                        <input type="text" id="salesperson-name" value="John Doe" disabled>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" class="remove-item">Remove</button>
+                    <a href="buyingProcess.html" class="order-now">Order Now</a>
+                </div>
+            </form>
+
+            <!-- Repeat Cart Item -->
+            <form class="cart-item">
+                <img src="image/mango1.jpg" alt="Product Image">
+                <div class="cart-details">
+                    <div class="cart-detail-item">
+                        <label for="product-name-2">Product Name:</label>
+                        <input type="text" id="product-name-2" value="Fresh Carrots" disabled>
+                    </div>
+                    <div class="cart-detail-item">
+                        <label for="product-price-2">Price:</label>
+                        <input type="text" id="product-price-2" value="$4.00 / kg" disabled>
+                    </div>
+                    <div class="cart-detail-item">
+                        <label for="salesperson-name-2">Salesperson:</label>
+                        <input type="text" id="salesperson-name-2" value="Jane Smith" disabled>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" class="remove-item">Remove</button>
+                    <a href="order.html" class="order-now">Order Now</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

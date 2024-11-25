@@ -3,67 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyer Home</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <title>FarmSmart - Market Information System</title>
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexstyle.css">
 </head>
 <body>
-
-    <div class="menu">
-        <img src="image/bp1.png" alt="Buyer Logo">
-        <div class="buyer-name">Buyer Name</div>
-        <a href="index.html">Home</a>
-        <a href="buy_product.html">Buy Product</a>
-        <a href="order_product.html">Make an Order</a>
-        <a href="myallOrder.html">View orders</a>
-        <a href="allcart.html">Cart Items</a>
-        <!-- Logout Button -->
-        <a href="/Login_CreateAcc/login.html" class="btn btn-sm" style="background-color: #3da59b; color: rgb(255, 255, 255); border-radius: 5px;">Logout</a>
-
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">FarmSmart</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="buyproduct.html">Products</a>
+            <a href="allOrder.html">My Orders</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="user-actions">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping cart-icon"></i> </a> <!-- Shopping Cart Icon -->
+            <a href="profile.html"><i class="fa-solid fa-user profile-icon"></i></a>  <!-- Profile/User Icon -->
+            <button class="logout">Logout</button>
+        </div>
     </div>
 
-    <div class="content">
-        <div class="container content">
-            <h1 style="color:#2d5a4a;font-weight: bold;" class="text-center">My Data Analysis</h1>
-            <div class="row">
-              <div class="col-3"></div>
-              <div class="col-6">
-                  <table class="table table-hover table-dark">
-                      <tbody>
-                        <tr>
-                          <td>Total Order</td>
-                          <td>50</td>
-                        </tr>
-                        <tr>
-                          <td>Running Order</td>
-                          <td>20</td>
-                        </tr>
-                        <tr>
-                          <td>Recived Parcel</td>
-                          <td>30</td>
-                        </tr>
-                      </tbody>
-                    </table>
-              </div>
-              <div class="col-3"></div>
-            </div>
-            <h1 style="color:#2d5a4a;font-weight: bold;" class="text-center">Visual Representation</h1>
-            <div class="row">
-              <div class="col-6">
-                  <img class="bar_img" src="image/bar.png" alt="">
-              </div>
-      
-              <div class="col-6">
-                  <img class="bar_img" src="image/pie.png" alt="">
-              </div>
-            </div>
-          </div>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to FarmSmart</h1>
+        <p>Connecting farmers and buyers with reliable market information.</p>
+        <a href="buyproduct.html" class="cta">Explore Products</a>
+    </section>
 
+    <!-- Content Section -->
+    <section class="content">
+        <h2>Our Features</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Browse Products</h3>
+                <p>Discover a variety of farm-fresh products available for purchase directly from farmers.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Market Trends</h3>
+                <p>Stay informed with the latest market prices and trends to make informed buying decisions.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Direct Communication</h3>
+                <p>Connect directly with farmers for personalized deals and better transparency.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 FarmSmart. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

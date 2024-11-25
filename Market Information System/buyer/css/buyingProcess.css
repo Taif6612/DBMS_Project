@@ -1,0 +1,201 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ddebe6;
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #38a169, #2d7a57);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 6px 10px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .menu a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+
+.navbar .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 100px;
+}
+
+.navbar .user-actions .cart-icon, .navbar .user-actions .profile-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.navbar .user-actions .cart-icon:hover {
+    color: #ffcc00; /* Highlight cart icon */
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .profile-icon:hover {
+    color: #00bfff; /* Highlight profile icon */
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .logout {
+    background: #e91e63;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.navbar .user-actions .logout:hover {
+    background: #d0174d;
+    transform: translateY(-2px);
+}
+
+.buying-section {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.buying-section h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #2d7a57;
+}
+
+.buying-form {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.quantity-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-controls a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #2d7a57;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quantity-controls a:hover {
+    background: #38a169;
+}
+
+.quantity-controls input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.form-actions {
+    text-align: center;
+}
+
+.buy-now-btn {
+    background: #38a169;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.buy-now-btn:hover {
+    background: #2d7a57;
+}

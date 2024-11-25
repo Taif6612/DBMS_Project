@@ -1,0 +1,215 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #ddebe6;
+    animation: bodyFadeIn 1s ease-in-out;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #38a169, #2d7a57);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 6px 10px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .menu a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+
+.navbar .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 100px;
+}
+
+.navbar .user-actions .cart-icon, .navbar .user-actions .profile-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.navbar .user-actions .cart-icon:hover {
+    color: #ffcc00; /* Highlight cart icon */
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .profile-icon:hover {
+    color: #00bfff; /* Highlight profile icon */
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .logout {
+    background: #e91e63;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.navbar .user-actions .logout:hover {
+    background: #d0174d;
+    transform: translateY(-2px);
+}
+
+/* Cart Section */
+.cart-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cart-section h1 {
+    font-size: 2.5rem;
+    color: #2d7a57;
+    margin-bottom: 20px;
+}
+
+/* Cart Container */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 730px;
+    margin: 0 auto;
+}
+
+/* Cart Item */
+.cart-item {
+    background: #e5fcf0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item img {
+    width: 100px; 
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+/* Cart Details */
+.cart-details {
+    flex: 1;
+}
+
+.cart-detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-detail-item label {
+    font-size: 0.9rem;
+    flex-basis: 30%;
+}
+
+.cart-detail-item input {
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 65%;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    align-self: center; 
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+.cart-actions button,
+.cart-actions .order-now {
+    width: 120px;
+    text-align: center;
+    padding: 10px 0; 
+    border-radius: 5px;
+    border: none;
+    font-size: 14px; 
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+    color: white;
+}
+
+.cart-actions .remove-item {
+    background: #ff4d4d;
+}
+
+.cart-actions .remove-item:hover {
+    background: #cc0000;
+    transform: translateY(-3px);
+}
+
+/* Order Now Button */
+.cart-actions .order-now {
+    display: inline-block;
+    background: #2b6cb0; 
+    text-decoration: none;
+}
+
+.cart-actions .order-now:hover {
+    background: #1a4e7c; 
+    transform: translateY(-3px);
+}
+/* Fade-In Animation */
+@keyframes bodyFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
