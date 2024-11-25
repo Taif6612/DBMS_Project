@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
-    height: 100vh;
+    min-height: 100vh; /* Allow page height to grow with content */
 }
 
 /* NavBar Styles */
@@ -95,14 +95,13 @@ body {
 .hero {
     position: relative;
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px; /* Adjust padding for responsiveness */
     color: white;
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensure no overflow from pseudo-element */
+    overflow: hidden;
 }
 
 .hero::before {
@@ -167,11 +166,11 @@ body {
     }
 }
 
+/* Content Section */
 .content {
     padding: 40px 20px;
     text-align: center;
     background-color: #ffffff;
-    height: 450px;
 }
 
 .content h2 {
@@ -225,13 +224,11 @@ body {
     color: #3e8e41;
 }
 
+/* Footer */
 .footer {
     background: #2d7a57;
     color: white;
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
