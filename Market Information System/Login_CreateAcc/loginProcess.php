@@ -24,16 +24,16 @@
             $_SESSION['active_user_id'] = $log_id;
 
             if ($usertype == "Farmer") {
-                header("Location: http://localhost/Market%20Information%20System/FarmerUser/LandingFarmer.php");
+                header("Location: /farmsmart/Market%20Information%20System/FarmerUser/LandingFarmer.php");
                 exit();
             } elseif ($usertype == "Buyer") {
-                header("Location: http://localhost/Market%20Information%20System/buyer/");
+                header("Location: /farmsmart/Market%20Information%20System/buyer/");
                 exit();
             } elseif ($usertype == "Analysist") {
-                header("Location: http://localhost/Market%20Information%20System/analysist/");
+                header("Location: /farmsmart/Market%20Information%20System/analysist/");
                 exit();
             } elseif ($usertype == "Supplier") {
-                header("Location: http://localhost/Market%20Information%20System/supplier/");
+                header("Location: /farmsmart/Market%20Information%20System/supplier/");
                 exit(); 
             }
             else {
