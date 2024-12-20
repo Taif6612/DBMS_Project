@@ -1,0 +1,175 @@
+/* Resetting some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #00796b, #004d40);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 6px 10px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.navbar .menu a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+.active{
+    color: #ffcc00;
+}
+
+.navbar .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 100px;
+}
+
+.navbar .user-actions .profile-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.navbar .user-actions .profile-icon:hover {
+    color: #00bfff;
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .logout {
+    background: #e91e63;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.navbar .user-actions .logout:hover {
+    background: #d0174d;
+    transform: translateY(-2px);
+}
+
+.form-section {
+    max-width: 500px;
+    width: 90%;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    margin: 50px auto;
+}
+
+.form-section:hover {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Form Styling */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    background: #f9f9f9;
+}
+
+.form-group input:focus {
+    border-color: #3a7c3f;
+    box-shadow: 0px 4px 10px rgba(58, 124, 63, 0.2);
+    outline: none;
+}
+
+/* Button Styling */
+.form-action {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background: linear-gradient(135deg, #3a7c3f, #5bc85b);
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(58, 124, 63, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 20px rgba(58, 124, 63, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0px 6px 10px rgba(58, 124, 63, 0.2);
+}
