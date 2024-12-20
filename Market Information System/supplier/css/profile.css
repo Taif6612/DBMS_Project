@@ -1,0 +1,158 @@
+/* Resetting some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #00796b, #004d40);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 6px 10px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.navbar .menu a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+.active{
+    color: #ffcc00;
+}
+
+.navbar .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 100px;
+}
+
+.navbar .user-actions .profile-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.navbar .user-actions .profile-icon:hover {
+    color: #00bfff;
+    transform: scale(1.2);
+}
+
+.navbar .user-actions .logout {
+    background: #e91e63;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.navbar .user-actions .logout:hover {
+    background: #d0174d;
+    transform: translateY(-2px);
+}
+.edit-profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 70px 10px;
+}
+
+.edit-profile-card {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-profile-card h2 {
+    font-size: 1.8rem;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.save-btn {
+    padding: 10px 20px;
+    background-color: #1fa78c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: #148f77;
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
