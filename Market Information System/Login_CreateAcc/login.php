@@ -45,7 +45,7 @@
                 <form method="post" action="loginProcess.php">
                     <div class="input-group">
                         <label for="usertype">User Type</label>
-                        <select name="usertype" id="usertype" required>
+                        <select name="usertype" id="usertype" >
                             <option value="" disabled selected>Select your user type</option>
                             <option value="Farmer">Farmer</option>
                             <option value="Buyer">Buyer</option>
