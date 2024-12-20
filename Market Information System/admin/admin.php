@@ -55,7 +55,7 @@
             <h1>Admin Dashboard</h1>
             <div class="user-info">
                 <span>Welcome, Admin</span>
-                <a href="#" class="logout">Logout</a>
+                <a href="/farmsmart/Market%20Information%20System/Login_CreateAcc/login.php" class="logout">Logout</a>
             </div>
         </header>
 
