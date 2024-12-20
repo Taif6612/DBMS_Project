@@ -201,51 +201,43 @@
     <div class="form-container">
         <h2>Deliver In WareHouse</h2>
         <form method="post" action="cropDeliverForm.php">
-            <?php
-                $conn = mysqli_connect("localhost", "root", "", "farmsmart");
+    <?php
+        $conn = mysqli_connect("localhost", "root", "", "farmsmart");
 
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                $sql_analysis = "SELECT crop_id FROM analysis_data_for_crops";
-                $result_analysis = mysqli_query($conn, $sql_analysis);
-                
-                $crops_for_farmer = []; 
-                
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql_analysis = "SELECT crop_id FROM analysis_data_for_crops";
+        $result_analysis = mysqli_query($conn, $sql_analysis);
+    ?>
+    <div class="form-group">
+        <label for="crop">Select Crop</label>
+        <select id="crop" name="crop">
+            <option value="">-- Select Crop Name --</option>
+            <?php
                 if (mysqli_num_rows($result_analysis) > 0) {
                     while ($row_analysis = mysqli_fetch_assoc($result_analysis)) {
                         $crop_id = $row_analysis['crop_id'];
-                
-                        $sql_farmer_check = "SELECT crop_id FROM crop_information_per_farmer WHERE crop_id = '$crop_id' AND farmer_id = '$f_id'";
+
+                        $sql_farmer_check = "SELECT c_name FROM crop_information_per_farmer WHERE crop_id = '$crop_id' AND farmer_id = '$f_id'";
                         $result_farmer_check = mysqli_query($conn, $sql_farmer_check);
-                
+
                         if (mysqli_num_rows($result_farmer_check) > 0) {
-                            $crops_for_farmer[] = $crop_id;
+                            $row_farmer = mysqli_fetch_assoc($result_farmer_check);
+                            echo "<option value='$crop_id'>" . $row_farmer['c_name'] . "</option>";
                         }
                     }
+                } else {
+                    echo "<option value=''>No crops available</option>";
                 }
-                
             ?>
-            <div class="form-group">
-                <label for="crop">Select Crop</label>
-                <select id="crop" name="crop">
-                    <option value="">-- Select Crop ID --</option>
-                    <?php
-                        if (!empty($crops_for_farmer)) {
-                            foreach ($crops_for_farmer as $crop) {
-                                echo "<option value='$crop'>$crop</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No crops available</option>";
-                        }
-                    ?>
-                </select>
-            </div>
+        </select>
+    </div>
 
-            <button type="submit">Load Form</button>
-            <!-- Submit Button -->
-        </form>
+    <button type="submit">Load Form</button>
+</form>
+
     </div>
 
 

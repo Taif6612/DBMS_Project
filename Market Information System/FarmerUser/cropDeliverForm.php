@@ -179,7 +179,7 @@
         </ul>
     </div>
 </nav>
-    <?php
+<?php
         $crop_id = $_POST['crop'];
         $conn = mysqli_connect("localhost", "root", "", "farmsmart");
 
@@ -187,18 +187,28 @@
             die("Connection failed: " . mysqli_connect_error());
         }
 
+        // Fetch market price and crop name
         $sql = "SELECT price_value FROM analysis_data_for_crops WHERE crop_id = '$crop_id'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+
+        $crop_name = ""; 
+        $name_sql = "SELECT c_name FROM crop_information_per_farmer WHERE crop_id = '$crop_id' AND farmer_id = '$f_id'";
+        $name_result = mysqli_query($conn, $name_sql);
+        if ($name_result && mysqli_num_rows($name_result) > 0) {
+            $name_row = mysqli_fetch_assoc($name_result);
+            $crop_name = $name_row['c_name'];
+        }
     ?>
     <div class="form-container">
         <h2>Enter Details</h2>
         <form action="saveCropWarehouseDetails.php" method="POST">
-            <input type="hidden" name="farmer_id" value="<?php echo $f_id;?>">
+            <input type="hidden" name="farmer_id" value="<?php echo $f_id; ?>">
 
             <div class="form-group">
-                <label for="crop_id">Crop ID:</label>
-                <input type="text" id="crop_id" name="crop_id" value="<?php echo $crop_id; ?>" readonly>
+                <label for="crop_id">Crop Name:</label>
+                <input type="text" name="crop_name" value="<?php echo $crop_name; ?>" readonly>
+                <input type="hidden" name="crop_id" value="<?php echo $crop_id; ?>" readonly>
             </div>
 
             <div class="form-group">
@@ -208,7 +218,7 @@
 
             <div class="form-group">
                 <label for="price_disc">Discount Percentage:</label>
-                <input type="text" id="price_disc" name="price_disc" placeholder="Ender The Percentage of Discount">
+                <input type="text" id="price_disc" name="price_disc" placeholder="Enter The Percentage of Discount">
             </div>
 
             <div class="form-group">
@@ -216,10 +226,6 @@
                 <select id="warehouse" name="warehouse" required>
                     <option value="">-- Select Warehouse --</option>
                     <?php
-                        if (!$conn) {
-                            die("Connection failed: " . mysqli_connect_error());
-                        }
-
                         $wsql = "SELECT zone_num, warehouse_num FROM warehouse";
                         $wresult = mysqli_query($conn, $wsql);
                         if (mysqli_num_rows($wresult) > 0) {
